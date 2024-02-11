@@ -1,0 +1,59 @@
+ <script>
+
+    //1.call
+    const emp1 = {
+        name:'Mahesh',
+        job:'Web Developer',
+        info:function(company){
+            console.log(`my name is ${this.name} and i am ${this.job} . I am currrntly working at ${company}`);
+        }
+    }
+    emp1.info("IBM")
+    const emp2 ={
+        name:'Amarjit',
+        job:'Fullstack Developer',
+    }
+    emp1.info.call(emp2 , 'Infosys')
+
+    const emp3 ={
+        name:'Sanket',
+        job:'Backend Developer',
+    }
+    emp1.info.call(emp3 , 'TCS')
+
+    //2.apply
+
+    const student1 = {
+        firstname:'Ram',
+        details:function(lastname){
+            console.log(`My firstname is ${this.firstname} and my lastname is ${lastname}`);
+        }
+    }
+
+    student1.details('Shinde')
+
+    const student2 = {
+        firstname:'Sham',
+        lastname:'Patil'
+    }
+
+    student1.details.apply(student2 , ['Patil'])
+
+    // 3.bind
+
+    const stu1 = {
+        name:'Shubham',
+        bio:function(institute){
+            return `Hello , I am ${this.name} and I am doing web development course from ${institute}`;
+        }
+    }
+
+    stu1.bio('Spark')
+
+    const stu2= {
+        name:'Rahul',
+    }
+
+    const data = stu1.bio.bind(stu2)
+    console.log(data('seed'));
+</script> 

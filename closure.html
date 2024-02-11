@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure in JS</title>
+</head>
+
+<body>
+    <!-- Lexical scope or Environment -->
+    <!-- <div>
+    <script>
+        function parentFun() {
+            let str2 = "How Are You ";
+            function childFun() {
+                let str3 = " This lexical scoping in javascript";
+                console.log(str1 + str2 + str3);
+            }
+            childFun();
+            // console.log(str1 + str2 + str3); //ReferenceError: str3 is not defined
+        }
+        parentFun();
+    </script>
+</div> -->
+
+    <!-- Closure in Javascript -->
+    <!-- <div>
+    <script>
+        const outer = () => {
+            let num1 = 40;
+            const inner = () => {
+                let num2 = 30;
+                return num1 + num2;
+            };
+            return inner;
+        };
+        const res = outer();
+        console.log(res);
+        console.log(res());
+    
+        // 2 example
+        // const outer =  (num) => {
+        //     let num1 = 40;
+        //     const inner = (num4) => {
+        //         let num2 = 30;
+        //         return  num1 + num2 + num + num4;
+        //     }
+        //     return inner;
+        // }
+    
+        // const res = outer(30);
+        // console.log(res);
+        // console.log(res(50));
+    </script>
+</div> -->
+
+    <!-- Real world example of closure -->
+    <div>
+        <button id="orange">Orange</button>
+        <button id="green">Green</button>
+
+        <script>
+            // Here we got the some problem so resolve it we can use the closure
+            // function changeColor(color){
+            //     document.body.style.backgroundColor = `${color}`
+            // }
+            // document.getElementById('orange').onclick = changeColor('orange')
+            // document.getElementById('green').onclick = changeColor('green')
+
+           // To solve the promble using closure 
+            function changeColor(color){
+                return function(){
+                    document.body.style.backgroundColor = `${color}`
+                }
+            }
+            document.getElementById('orange').onclick = changeColor('orange')
+            document.getElementById('green').onclick = changeColor('green')
+
+
+        </script>
+    </div>
+</body>
+
+</html>

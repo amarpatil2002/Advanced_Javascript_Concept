@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest and Speard operator in JS</title>
+</head>
+
+<body>
+    <h2>Rest and Speard operator in JS</h2>
+    <!-- Rest operators -->
+    <div>
+    <script>
+        function restFun(num1, num2, ...others) {
+            let add = 0;
+            for (let i = 0; i < others.length; i++) {
+                add = add + others[i];
+            }
+            return add + num1 + num2;
+        }
+        let resRest = restFun(1, 2, 1, 1, 3, 2);
+        console.log(resRest);
+    </script>
+
+    <script>
+        //rest in array
+        const arr1 = [1, 2, 3 , 4, 5, 6]
+        const [first , second , ...arr] = arr1
+        console.log(first ,second , ...arr);
+
+        //rest in object
+        const person = {
+            name:"Amarjit",
+            city:"Pandharpur",
+            age:21
+        }
+        const {name , city , age} = person
+        console.log(name , city , age);
+    </script>
+</div>
+
+
+    <!-- spread operator -->
+    <!-- <div>
+        <script>
+            const nums = [10, 20, 30];
+            function spreadFunction(num1, ...others) { //...thers is a rest operator
+                let add = 0;
+                for (let i = 0; i < others.length; i++) {
+                    add = add + others[i];
+                }
+                return add + num1;
+            }
+            // let res = spreadFunction(nums[0],nums[1],nums[2]);
+            let res = spreadFunction(...nums); // ..nums is a spread operator
+            console.log(res);
+        </script>
+
+        <script>
+            const func = (a, b, ...res) => {
+                let sum = 0
+                for (let i = 0; i < res.length; i++) {
+                    sum += res[i]
+                }
+
+                let mult = a * b
+
+                return [mult, sum]
+            }
+            console.log(func(1, 2, 5, 1, 5));
+        </script>
+
+    </div> -->
+</body>
+
+</html>

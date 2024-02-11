@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        #outerdiv,
+        #innerdiv,
+        #innermostdiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Event Propagation -->
+    <div>
+        <div id="outerdiv" style="border: 4px solid green; height:250px;width:250px;margin-bottom:20px">
+            <div id="innerdiv" style="border: 4px solid rgb(124, 0, 128); height:170px;width:170px">
+                <div id="innermostdiv" style="border: 4px solid rgb(7, 7, 7); height:80px;width:80px">
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // 1 event bubbling and it's default behavior
+            document.getElementById('outerdiv').addEventListener('click', () => {
+                console.log("Outer div is clicked...");
+            })
+            document.getElementById('innerdiv').addEventListener('click', () => {
+                console.log("inner div clicked");
+            })
+            document.getElementById('innermostdiv').addEventListener('click', () => {
+                console.log("inner most div clicked");
+            })
+
+            //ORRRRR
+
+            document.getElementById('outerdiv').addEventListener('click', () => {
+                console.log("Outer div is clicked...");
+            }, false)
+            document.getElementById('innerdiv').addEventListener('click', () => {
+                console.log("inner div clicked");
+            }, false)
+            document.getElementById('innermostdiv').addEventListener('click', () => {
+                console.log("inner most div clicked");
+            }, false)
+
+            1// 2 event capturing
+            document.getElementById('outerdiv').addEventListener('click', (e) => {
+                e.stopPropagation()
+                console.log("Outer div is clicked...");
+            }, true)
+            document.getElementById('innerdiv').addEventListener('click', () => {
+                console.log("inner div clicked");
+            }, true)
+            document.getElementById('innermostdiv').addEventListener('click', () => {
+                console.log("inner most div clicked");
+            }, true)
+        </script>
+    </div>
+
+
+    <!-- Event Delegation -->
+    <!-- <div>
+        <div id="outerdiv" style="border: 4px solid green; height:250px;width:250px;margin-bottom:20px">
+            <div id="innerdiv" style="border: 4px solid rgb(124, 0, 128); height:170px;width:170px">
+                <div id="innermostdiv" style="border: 4px solid rgb(7, 7, 7); height:80px;width:80px">
+
+                </div>
+            </div>
+        </div>
+        <script>
+            let outerdiv = document.getElementById('outerdiv')
+            outerdiv.addEventListener('click', (e) => {
+                if (e.target.id === 'innermostdiv') {
+                    console.log("innermost clicked");
+                } else if (e.target.id === 'innerdiv') {
+                    console.log("innerdiv clicked");
+                } else if (e.target.id === 'outerdiv') {
+                    console.log("outerdiv clicked");
+                }
+            })
+        </script>
+    </div> -->
+
+
+    <!-- remove the element on click -->
+    <!-- <div>
+        <h1>Languages </h1>
+        <ul class="languages">
+            <li>
+                <h2>Javascript</h2>
+            </li>
+            <li>
+                <h2>Java</h2>
+            </li>
+            <li>
+                <h2>Python</h2>
+            </li>
+            <li>
+                <h2>Cpp</h2>
+            </li>
+            <li>
+                <h2>C</h2>
+            </li>
+        </ul>
+
+
+        <script>
+            document.querySelector('.languages').addEventListener('click', (e) => {
+                console.log(e.target.parentNode);
+                let removeEle = e.target.parentNode
+                removeEle.remove()
+            })
+        </script>
+    </div> -->
+
+
+    <!-- get the textcontent on click -->
+    <!-- <div>
+        <div class="btns">
+            <button>Button1</button>
+            <button>Button2</button>
+            <button>Button3</button>
+            <button>Button4</button>
+        </div>
+
+        <script>
+            let btns = document.querySelectorAll('button')
+            btns.forEach((bts) => {
+                bts.addEventListener('click', (e) => {
+                    console.log(e.target.textContent);
+                    //console.log(e.target.innerHTML);
+                    //console.log(e.target.innerText);
+                })
+            })
+        </script>
+    </div> -->
+
+
+
+
+
+    
+
+</body>
+
+</html>

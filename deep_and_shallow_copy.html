@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep and Shollow copy</title>
+</head>
+
+<body>
+    
+    <h2>Deep and Shollow copy in JS</h2>
+    <script>
+        //const _ = require('loadsh');
+        //const user1 = {
+        //     name:"Amarjit",
+        //     city:"Pandharpur",
+        //     age:30
+        // }
+
+        // console.log(user1);
+
+        // const user2 = user1
+        // user2.age = 21
+        // console.log(user2.age);
+        // console.log(user1.age);
+
+        // Here we got the problem so to resolve it we can use shallow copy
+
+        // shollow copy in js
+        //   const student1 = {
+        //     name: "Amarjit",
+        //     city: "Pandharpur",
+        //     age: 30
+        // }
+
+        // console.log(student1);
+
+        // const student2 = Object.assign({} , student1)
+        //const student2 = {...student1}
+        // student2.name = "Ram"
+        // console.log(student2.name);
+        // console.log(student1.name);
+
+        // Deep copy in js
+        const student1 = {
+            name: "Amarjit",
+            address:{
+                city: "Pandharpur",
+                houseno:230
+            }
+        }
+
+        // this the first way
+        const student2 = JSON.parse(JSON.stringify(student1))
+
+        //this is the second way
+        //const student2 = _.cloneDeep(student1)
+        console.log(student2);
+        student2.address.city = "Pune"
+        console.log(student2.address.city);
+        console.log(student1.address.city);
+
+    </script>
+</body>
+
+</html>

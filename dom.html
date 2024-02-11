@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM in JS</title>
+</head>
+
+<body>
+
+
+  <!-- Create the new dom -->
+  <!-- <div>
+    <h2>Create the new dom</h2>
+    <script>
+      let div = document.createElement("div");
+      div.id = Math.floor(Math.random() * 100 + 1);
+      div.className = "divclass";
+      div.setAttribute("title", "this is title");
+      div.setAttribute("name", "name");
+      div.style.color = "orange";
+      div.style.backgroundColor = "black";
+      div.style.fontSize = "30px";
+      div.innerText = "This my first own div";
+      document.body.appendChild(div);
+      console.log(div); 
+    </script>
+  </div> -->
+
+
+  <!-- Add new document element -->
+  <!-- <div>
+    <h2>Add new document element</h2>
+    <ul class="languages">
+      <li>Javascript</li>
+    </ul>
+    <script>
+      function addLanguage(languages) {
+        let li = document.createElement("li");
+        li.innerHTML = `${languages}`;
+        document.querySelector(".languages").appendChild(li);
+      }
+
+      addLanguage("Python");
+      addLanguage("Java");
+    </script>
+  </div> -->
+
+
+  <!-- Edit and delete document element -->
+  <!-- <div>
+    <h2>Edit and delete document element</h2>
+    <ul class="languages">
+      <li>Javascript</li>
+      <li>C++</li>
+      <li>Python</li>
+      <li>Java</li>
+    </ul>
+    <script>
+      let lang = document.querySelector('li:nth-child(2)')
+      lang.innerHTML = "C#"
+      console.log(lang);
+
+      let lastLang = document.querySelector('li:last-child')
+      lastLang.remove()
+      console.log(lastLang);
+    </script>
+  </div> -->
+
+
+  <!-- append the data to existing elemets -->
+  <!-- <div>
+    <div class="parent" style="border:2px solid green">
+      <div class="box">div1</div>
+      <div class="box">div2</div>
+      <div class="box">div3</div>
+    </div>
+
+    <script>
+      let h9 = document.createElement('h9')
+      h9.innerText = "This is heading tag"
+      h9.style.color = "black"
+      h9.style.fontSize = "50px"
+      h9.setAttribute('class', 'heading')
+      h9.id = 'heading'
+
+      document.querySelector('.parent').append(h9)
+    //  document.querySelector('.parent').prepend(h9)
+    //  document.querySelector('.parent').before(h9)
+    //  document.querySelector('.parent').after(h9)
+
+      let parent = document.querySelector('.parent')
+      let seondDiv = document.querySelector('div:nth-child(2)')
+      console.log(seondDiv);
+      let secondChild = parent.children[1]
+      parent.removeChild(secondChild)
+
+    </script>
+  </div> -->
+
+
+  <!-- create the dom element with unique innerText -->
+  <div>
+    <script>
+      let ele = document.querySelector('h2')
+      ele.innerText += " from student of KBPM"
+      console.log(ele);
+
+      const allBoxes = document.querySelectorAll('.box')
+      allBoxes.forEach((ele, i) => {
+        ele.innerText = `This is my box${i + 1}`
+      })
+      console.log(allBoxes);
+    </script>
+  </div>
+
+
+</body>
+
+</html>

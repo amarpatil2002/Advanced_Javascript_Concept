@@ -1,0 +1,49 @@
+<form>
+  <button id="myButton">Click me</button>
+</form>
+
+<script>
+  "use strict";
+
+  // 1.In an object method, this refers to the object.
+  const obj = {
+    name: "Amarjit Patil",
+    sum: function () {
+      console.log("Inside the object");
+      console.log(this);
+    },
+  };
+  obj.sum();
+
+  // 2.Alone, this refers to the global object.
+  console.log(this);
+
+  // 3.In a function, this refers to the global object.
+  function Hello() {
+    console.log(2 + 2);
+    console.log(this);
+  }
+  Hello();
+
+  // 4.In a function, in strict mode, this is undefined.
+  function Hello() {
+    console.log(2 + 2);
+    console.log(this);
+  }
+  Hello();
+
+  // 5.In an event, this refers to the element that received the event.
+  document.getElementById("myButton").addEventListener("click", function (e) {
+    e.preventDefault();
+    console.log(this);
+  });
+
+  // 6.You can explicitly set the value of this using call, apply, or bind methods.
+
+  function sayHello() {
+    console.log("Hello, " + this.name);
+  }
+
+  const person = { name: "Alice" };
+  sayHello.call(person);
+</script>

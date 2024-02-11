@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debouncing and Throttling</title>
+    <style>
+        body {
+            height: 200vh;
+        }
+    </style>
+</head>
+
+<body onscroll="debounceAndThrottle()">
+    <h2>Debouncing and Throttling in JS </h2>
+    <!-- Debouncing and Throttling in Javascript -->
+    <div>
+        <div>
+            <h2 id="n-id">Normal count : 0 </h2>
+            <h2 id="t-id">Throttle count : 0 </h2>
+            <h2 id="d-id">Debounce count : 0</h2>
+        </div>
+        <script>
+
+            let normalId = document.querySelector("#n-id")
+            let throttleId = document.querySelector("#t-id")
+            let debounceId = document.querySelector("#d-id")
+
+            let n_count = 0
+            let t_count = 0
+            let isScrolling = true;
+            let d_count = 0
+
+            const normalFun = () => {
+                normalId.innerHTML = `Normal count : ${n_count++}`
+            }
+
+            const throttleFun = () => {  
+                if (isScrolling === true) {
+                    throttleId.innerHTML = `Throttle count : ${t_count++}`
+                    isScrolling = false
+                    setTimeout(() => {
+                        isScrolling = true
+                    }, 1000)
+                }
+            }
+
+
+            let interval;
+            const debounceFun = () => {
+                clearInterval(interval)
+                interval = setTimeout(() => {
+                    debounceId.innerHTML = `Debounce count : ${d_count++}`
+                } , 1000)
+
+            }
+
+            const debounceAndThrottle = () => {
+                normalFun();
+                throttleFun();
+                debounceFun();
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

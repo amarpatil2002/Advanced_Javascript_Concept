@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions in JS</title>
+</head>
+
+<body>
+  <h2>Functions in JavaScript</h2>
+  <script>
+    // 1. Regular or normal function
+    function Add(a, b) {
+      return a + b;
+    }
+    console.log(Add(10, 20));
+
+    // 2. Anonymous function
+    const Hello = function () {
+      console.log("This is a anonymous function");
+    };
+    Hello();
+
+    // 3. Arrow Fuction
+    const arrowFunc = () => {
+      return "This is a arrow function";
+    };
+    console.log(arrowFunc());
+
+    // 4. Fuction Expression
+    const fun = () => {
+      return 20 + 20;
+    };
+    console.log(fun());
+
+    // 5. Self Invoked or IIFE(Immediately Inviked Function Expression)
+
+    (function add(str) {
+      console.log(str);
+    })("Self Invoked Function");
+
+    // 6. Callback Functions
+    // a function pass as an argument to the another function
+    const sub = (num1, num2) => {
+      return num1 - num2;
+    };
+
+    const res = (num1, num2, opr) => {
+      return opr(num1, num2);
+    };
+
+    console.log(res(100, 20, sub));
+
+    // 7. HOF(Higher Order Functions)
+    // one function takes anoter function as an argument
+    const mul = (n1, n2) => {
+      return n1 * n2;
+    };
+
+    const hofFunction = (n1, n2, opr) => {
+      return opr(n1, n2);
+    };
+    console.log(hofFunction(2, 5, mul));
+
+    // or a function can return a another function
+    const outerFun = () => {
+      console.log("This is a outer function");
+      return () => {
+        console.log("This is a inner function");
+      };
+    };
+
+    let result = outerFun();
+    result();
+
+    // 8. Function constructor
+    let funConstructor = new Function("a", "b", "return a+b");
+    console.log(funConstructor(5, 5));
+
+  </script>
+</body>
+
+</html>

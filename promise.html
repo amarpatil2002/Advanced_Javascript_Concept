@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise in JS</title>
+</head>
+
+<body>
+    <h1>Promise in JavaScript</h1>
+    <!-- create a new promise and handle it -->
+    <!-- <div>
+        <script>
+            const promiseOne = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("This is My first promise");
+                    let data = true;
+                    if (!data) {
+                        resolve({ name: "Amarjit", email: "amarjit@gmail.com" });
+                    } else {
+                        reject("Something went wrong");
+                    }
+                }, 1000);
+            });
+
+            promiseOne
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+            // 2 . create a promise 
+            new Promise((resolve, reject) => {
+                let data = {
+                    name: "Sanket",
+                    email: "sanket@gmail.com",
+                };
+                setTimeout(() => {
+                    console.log("This is second promise");
+                    let cond = false;
+                    if (!cond) {
+                        resolve(data);
+                    } else {
+                        reject("Something went wrong");
+                    }
+                }, 1000);
+            })
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+                .finally(() => {
+                    console.log("It is always executed promise resolve or reject");
+                });
+
+        </script>
+    </div> -->
+
+
+    <!-- JavaScript Promise Methods -->
+    <div>
+        <!-- 1.Promise.all() method -->
+        <!-- <script>
+            const data = Promise.all([
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        reject("It take 2 seconds")
+                    }, 2000)
+                }),
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve("It take 1 seconds")
+                    }, 1000)
+                })
+            ])
+
+            data.then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log("catch block : " , err);
+            })
+        </script> -->
+        
+        <!-- 2.Promise.allSettled() method -->
+        <!-- <script>
+            const prom1 = Promise.resolve("It take 1 seconds")
+            const prom2 = Promise.resolve("It take 2 seconds")
+            const prom3 = Promise.reject("It take 3 seconds")
+            const prom4 = Promise.resolve("It take 4 seconds")
+
+            Promise.allSettled([prom1, prom2 , prom3 , prom4]).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log("catch block : " , err);
+            })
+        </script> -->
+    
+        <!-- 3.Promise.race() method -->
+        <!-- <script>
+            const data = Promise.race([
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve("It take 2 seconds")
+                    }, 2000)
+                }),
+                new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve("It take 3 seconds")
+                    }, 3000)
+                })
+            ])
+
+            data.then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log("catch block : " , err);
+            })
+        </script> -->
+    
+        <!-- 4.Promise.any() method -->
+        <!-- <script>
+           const prom1 = Promise.reject("Error1")
+           const prom2 = Promise.reject("Error2")
+           const prom3 = Promise.reject("Error3")
+           const prom4 = Promise.reject("Error4")
+
+           Promise.any([prom1, prom2, prom3, prom4]).then((res) => {
+                console.log(res);
+            }).catch((err) => {
+                console.log("catch block : " , err);
+            })
+        </script> -->
+
+    </div>
+
+
+    <!-- fetch data from fake api by using then and catch -->
+    <!-- <div>
+        <script>
+            fetch("https://jsonplaceholder.typicode.com/todos").then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log(data);
+            }).catch((err) => {
+                console.log(err);
+            })
+            getData();
+        </script>
+
+    </div> -->
+
+
+    <!-- fetch data from fake api by using async and await -->
+    <!-- <div>
+        <script>
+            const getData = async () => {
+                try {
+                    let data = await fetch("https://jsonplaceholder.typicode.com/todos");
+                    let res = await data.json();
+                    console.log(res);
+                } catch (err) {
+                    console.log("Can't load data");
+                }
+            };
+
+            getData()
+        </script>
+    </div> -->
+
+</body>
+
+</html>
